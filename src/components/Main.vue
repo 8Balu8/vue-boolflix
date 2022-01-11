@@ -2,12 +2,12 @@
 <main>
     <div class="container">
         <div class="card-contain">
-            <div class="card">
+            <div class="card" v-for="movie, index in movies" :key="index">
                 <ul>
-                    <li>title</li>
-                    <li>title</li>
-                    <li>title</li>
-                    <li>title</li>
+                    <li>{{movie.title}}</li>
+                    <li>{{movie.original_title}}</li>
+                    <li>{{movie.original_language}}</li>
+                    <li>{{movie.vote_average}}</li>
                 </ul>
             </div>
         </div>
@@ -17,7 +17,10 @@
 
 <script>
 export default {
-    name: "Main"
+    name: "Main",
+    props: {
+        movies: Array
+    }
 }
 </script>
 
