@@ -1,13 +1,20 @@
 <template>
     <header>
-        <input type="text" placeholder="Title">
-        <button>Search</button>
+        <input type="text" placeholder="Title" v-model="userSearch">
+        <button @click="$emit('getUserSearch', userSearch)">
+            Search
+        </button>
     </header>
 </template>
 
 <script>
 export default {
-    name: "Header"
+    name: "Header",
+    data: function() {
+        return {
+            userSearch: ""
+        }
+    }
 }
 </script>
 
