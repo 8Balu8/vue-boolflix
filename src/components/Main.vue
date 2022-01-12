@@ -4,12 +4,12 @@
         <div class="card-contain">
             <div class="card" v-for="movie, index in movies" :key="index">
                 <ul>
-                    <li>{{movie.title}}</li>
-                    <li>{{movie.original_title}}</li>
+                    <li>Title: {{movie.title}}</li>
+                    <li>Original Title: {{movie.original_title}}</li>
                     <li class="flag">
-                        Language: <img :src="require(`../assets/img/${movie.original_language}.png`)" alt="">
+                        Language: <img :src="require(`../assets/img/${movie.original_language}.png`)" :alt="movie.original_language">
                     </li>
-                    <li>{{movie.vote_average}}</li>
+                    <li>Vote: {{movie.vote_average}}</li>
                 </ul>
             </div>
         </div>
@@ -22,6 +22,11 @@ export default {
     name: "Main",
     props: {
         movies: Array
+    },
+    methods: {
+        decimalAdjust: function(number) {
+            return Math.floor(number)
+        }
     }
 }
 </script>
