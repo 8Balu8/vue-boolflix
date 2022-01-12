@@ -6,7 +6,9 @@
                 <ul>
                     <li>{{movie.title}}</li>
                     <li>{{movie.original_title}}</li>
-                    <li>{{movie.original_language}}</li>
+                    <li class="flag">
+                        Language: <img :src="require(`../assets/img/${movie.original_language}.png`)" alt="">
+                    </li>
                     <li>{{movie.vote_average}}</li>
                 </ul>
             </div>
@@ -35,6 +37,16 @@ main {
         .card {
             width: calc((100% / 3) - 40px);
             margin: 10px 20px;
+
+            .flag {
+                width: 30px;
+                display: flex;
+
+                img {
+                    width: 100%;
+                    margin-left: 5px;
+                }
+            }
         }
     }
 }
