@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header @getUserSearch="getMovie"/>
-    <Main :movies="movies"/>
+    <Header @getUserSearch="getMovieAndSeries"/>
+    <Main :movies="movies" :series="series"/>
   </div>
 </template>
 
@@ -20,15 +20,20 @@ export default {
     return {
       apiUrl: "https://api.themoviedb.org/3",
       movieEndPoint: "/search/movie",
+      seriesEndPoint: "/search/tv",
       apiKey: "?api_key=d25703f25aaa953856af5ee2ef9120fd",
       movies: [],
+      series: []
     }
   },
   methods: {
-    getMovie(userSearch) {
+    getMovieAndSeries(userSearch) {
       let userQuery = "&query="+userSearch
       axios.get(this.apiUrl+this.movieEndPoint+this.apiKey+userQuery).then((response) => {
         this.movies = response.data.results
+      })
+      axios.get(this.apiUrl+this.seriesEndPoint+this.apiKey+userQuery).then((response) => {
+        this.series = response.data.results
       })
     }
   }

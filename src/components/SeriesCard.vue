@@ -1,16 +1,16 @@
 <template>
     <div class="card-contain">
-        <div class="card" v-for="movie, index in movies" :key="index">
+        <div class="card" v-for="series, index in series" :key="index">
             <ul>
                 <li>
-                    <img :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" alt="Movie Poster">
+                    <img :src="`https://image.tmdb.org/t/p/w342${series.poster_path}`" alt="Series Poster">
                 </li>
-                <li>Title: {{movie.title}}</li>
-                <li>Original Title: {{movie.original_title}}</li>
+                <li>Title: {{series.name}}</li>
+                <li>Original Title: {{series.original_name}}</li>
                 <li class="flag">
-                    Language: <img :src="require(`../assets/img/${movie.original_language}.png`)" :alt="movie.original_language">
+                    Language: <img :src="require(`../assets/img/${series.original_language}.png`)" :alt="series.original_language">
                 </li>
-                <li>Vote: {{movie.vote_average}}</li>
+                <li>Vote: {{series.vote_average}}</li>
             </ul>
         </div>
     </div>
@@ -18,9 +18,9 @@
 
 <script>
 export default {
-    name: "MovieCard",
+    name: "SeriesCard",
     props: {
-        movies: Array
+        series: Array
     }
 }
 </script>
