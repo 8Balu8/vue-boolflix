@@ -3,26 +3,22 @@
     <div class="container">
       <h2>Film</h2>
       <div class="card-contain">
-        <MovieCard
-          v-for="(movie, index) in movies"
-          :key="index"
-          :movie="movie"
-        />
+        <Card v-for="movie in movies" :key="movie.id" :details="movie" />
       </div>
       <h2>Series</h2>
-      <SeriesCard :series="series" />
+      <div class="card-contain">
+        <Card v-for="tv in series" :key="tv.id" :details="tv" />
+      </div>
     </div>
   </main>
 </template>
 
 <script>
-import MovieCard from "../components/MovieCard.vue";
-import SeriesCard from "../components/SeriesCard.vue";
+import Card from "../components/Card.vue";
 export default {
   name: "Main",
   components: {
-    MovieCard,
-    SeriesCard,
+    Card,
   },
   props: {
     movies: Array,
