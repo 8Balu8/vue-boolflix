@@ -98,14 +98,13 @@ export default {
     left: 0;
     z-index: 1;
 
+    &:hover {
+      display: none;
+    }
+
     img {
       width: 100%;
       height: 100%;
-
-      &:hover {
-        transition: 2s;
-        opacity: 0.1;
-      }
     }
   }
 
@@ -136,6 +135,13 @@ export default {
     height: 100%;
     background-color: gray;
     overflow-y: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &:hover {
+      z-index: 2;
+    }
   }
   .noposter {
     width: 100%;

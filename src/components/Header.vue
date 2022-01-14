@@ -3,7 +3,9 @@
     <h2>BOOLFLIX</h2>
     <div>
       <input type="text" placeholder="Title" v-model="userSearch" />
-      <button @click="$emit('getUserSearch', userSearch)">Search</button>
+      <button @click="$emit('getUserSearch', userSearch)">
+        <i class="fas fa-search"></i>
+      </button>
     </div>
   </header>
 </template>
@@ -33,6 +35,11 @@ header {
 
   h2 {
     color: red;
+  }
+
+  button {
+    width: 30px;
+    cursor: pointer;
   }
 }
 </style>
