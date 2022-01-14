@@ -16,7 +16,10 @@
         </div>
       </div>
       <!-- Message for indication to user -->
-      <div v-else class="user-message">
+      <div
+        v-else-if="movie.length < 0 || series.length < 0"
+        class="user-message"
+      >
         <h2>Make a research to see films and seriesTV</h2>
       </div>
     </div>
